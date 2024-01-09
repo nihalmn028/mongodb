@@ -1,5 +1,9 @@
 const express = require('express')
 const router = express.Router()
+router.use((req,res,next)=>{
+console.log("middleware inside router")
+next()
+})
 const { getContact,postContact,putContact,deleteContact } = require('../controllers/contactController.js')
 router.route('/').get(getContact).post(postContact)
 // router.route('/').post((req,res)=>{

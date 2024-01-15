@@ -3,7 +3,7 @@ const app=express()
 const dotenv=require('dotenv').config()
 const port=process.env.PORT || 3000
 const contactsRouter=require('./routes/contactsRouter.js')
-
+const connectDb=require('./config/dbconnection.js')
 app.use(express.json())
 //middleware function
 
@@ -20,14 +20,15 @@ app.use(express.json())
 
 
 app.use('/api/contacts',contactsRouter)
-app.get('/',(req,res)=>{
-  res.status(200).json({message:"hello world"})
+app.get('/',(req,res)=>{  
+  res.status(200).json({message:"hello world"}) 
 })
 
 
 app.listen(port,()=>{
   console.log(`server running ${port}`)
-})
+  connectDb();
 
+})
 
 

@@ -6,6 +6,8 @@ next()
 })
 const { getContact,postContact,putContact,deleteContact } = require('../controllers/contactController.js')
 router.route('/').get(getContact).post(postContact)
+// router.route('/:id').get(getContact).post(postContact)
+
 // router.route('/').post((req,res)=>{
 //   res.status(200).json({message:`create contact ${req.body.name}`})//if there is same route then we can chain functions
 
